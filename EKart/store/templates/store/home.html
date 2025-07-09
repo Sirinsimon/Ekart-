@@ -1,0 +1,38 @@
+{% extends 'store/base.html' %}
+{% block content %}
+
+<h2 class="mb-4">Available Products</h2>
+
+<!-- Search Bar -->
+<form method="get" action="" class="mb-4 d-flex" style="max-width: 400px;">
+  <input type="text" name="q" value="{{ request.GET.q }}" class="form-control me-2" placeholder="Search products...">
+  <button type="submit" class="btn btn-outline-primary">Search</button>
+</form>
+
+{% if products %}
+<div class="row">
+  {% for product in products %}
+  <div class="col-md-3">
+    <div class="card mb-3">
+      <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">
+          {% if product.discount_price %}
+            <span class="text-success fw-bold">₹{{ product.discount_price }}</span>
+            <del class="text-muted small">₹{{ product.price }}</del>
+          {% else %}
+            ₹{{ product.price }}
+          {% endif %}
+        </p>
+        <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary btn-sm">View Details</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+  <div class="alert alert-warning">No products found for your search.</div>
+{% endif %}
+
+{% endblock %}

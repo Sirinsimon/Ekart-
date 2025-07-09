@@ -1,0 +1,7 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<p>Welcome back, <strong>{{ user.username }}</strong>!</p>
+<p>You can manage your orders, profile, and cart from here.</p>
+<a href="{% url 'view_cart' %}" class="btn btn-outline-primary">View Cart</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<h2>{{ product.title }}</h2>
+
+<img src="{{ product.image.url }}" width="300">
+<p>{{ product.description }}</p>
+<p><strong>Price:</strong> ₹{{ product.price }}</p>
+
+{% if bullet_specs %}
+  <h4>Specifications</h4>
+  <h5>General</h5>
+  <ul>
+    {% for spec in bullet_specs %}
+      <li>{{ spec }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<a href="{% url 'add_to_cart' product.id %}" class="btn btn-success">Add to Cart</a>
+<a href="{% url 'purchase_product' product.id %}" class="btn btn-primary">Purchase Now</a>
+{% endblock %}
