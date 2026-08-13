@@ -1,6 +1,7 @@
 eKart is a full-stack e-commerce platform that provides a complete online shopping experience with customer, seller, and admin functionalities. It includes product management, secure authentication, order processing, payment integration, and an analytics dashboard.
 
- Features
+ Features:
+ 
 Customer
 
 User registration & login
@@ -17,7 +18,8 @@ Order tracking
 
 Profile and address management
 
-Admin
+Admin: 
+
 
 Dashboard with sales analytics
 
